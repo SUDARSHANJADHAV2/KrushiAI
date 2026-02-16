@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Forecast | KrushiAI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+      <div class="logo">
+        <a href="/index.html"><h1>KrushiAI</h1></a>
+      </div>
+
+        <nav class="navbar">
+            <a href="../index.html">Home</a>
+            <a href="../index.html">Features</a>
+            <a href="../index.html">About</a>
+            <a href="/contact/index.html">Contact</a>
+            <a href="#" class="active">Weather</a>
+            <a href="../guide/index.html">Guide</a>
+            <a href="../explore/index.html" >EXPLORE NOW</a>
+        </nav>
+
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </header>
+
+    <!-- Weather Section -->
+    <section class="weather-section">
+        <div class="weather-heading">
+            <h1>Weather Forecast</h1>
+            <p>Get real-time weather information for smart farming decisions</p>
+        </div>
+
+        <div class="container">
+            <div class="weather-card">
+                <div class="card-header">
+                    <i class="fas fa-cloud-sun"></i>
+                    <h3>Agricultural Weather Insights</h3>
+                </div>
+                
+                <div class="search-box">
+                    <input type="text" placeholder="Enter your location" class="input-box" id="locationInput">
+                    <button class="search-btn" id="searchBtn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </div>
+
+                <div class="current-location">
+                    <h2 id="currentLocation">Enter location to get weather</h2>
+                    <p id="currentDate"></p>
+                </div>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Loading weather data...</p>
+                </div>
+
+                <div class="error-message" id="errorMessage">
+                    <h3>Unable to load weather data</h3>
+                    <p>Please check your internet connection and try again</p>
+                </div>
+
+                <div class="location-not-found" id="locationNotFound">
+                    <h1>Sorry, Location not found!</h1>
+                    <i class="fas fa-map-marker-alt" style="font-size: 8rem; color: var(--medium-gray); margin: 2rem 0;"></i>
+                    <p>Please try a different location</p>
+                </div>
+
+                <div class="weather-body" id="weatherBody">
+                    <i class="fas fa-sun weather-img" id="weatherImg" style="font-size: 12rem; color: #f39c12;"></i>
+
+                    <div class="weather-box">
+                        <p class="temperature" id="temperature">25 <sup>°C</sup></p>
+                        <p class="description" id="description">Sunny</p>
+                    </div>
+
+                    <div class="weather-details">
+                        <div class="condition-item humidity">
+                            <i class="fa-sharp fa-solid fa-droplet"></i>
+                            <div class="text">
+                                <span id="humidity">45%</span>
+                                <p>Humidity</p>
+                            </div>
+                        </div>
+
+                        <div class="condition-item wind">
+                            <i class="fa-solid fa-wind"></i>
+                            <div class="text">
+                                <span id="windSpeed">12 km/h</span>
+                                <p>Wind Speed</p>
+                            </div>
+                        </div>
+
+                        <div class="condition-item pressure">
+                            <i class="fa-solid fa-gauge"></i>
+                            <div class="text">
+                                <span id="pressure">1013 hPa</span>
+                                <p>Pressure</p>
+                            </div>
+                        </div>
+
+                        <div class="condition-item visibility">
+                            <i class="fa-solid fa-eye"></i>
+                            <div class="text">
+                                <span id="visibility">10 km</span>
+                                <p>Visibility</p>
+                            </div>
+                        </div>
+
+                        <div class="condition-item feels-like">
+                            <i class="fa-solid fa-thermometer-half"></i>
+                            <div class="text">
+                                <span id="feelsLike">28°C</span>
+                                <p>Feels Like</p>
+                            </div>
+                        </div>
+
+                        <div class="condition-item uv-index">
+                            <i class="fa-solid fa-sun"></i>
+                            <div class="text">
+                                <span id="uvIndex">5 <span class="uv-risk uv-moderate">Moderate</span></span>
+                                <p>UV Index</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="forecast-section">
+                        <h4>5-Day Forecast</h4>
+                        <div class="forecast-container" id="forecastContainer">
+                            <!-- Forecast items will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="agri-metrics-container">
+                        <h4>Agricultural Metrics</h4>
+                        <div class="agri-metrics-grid">
+                            <div class="agri-metric">
+                                <i class="fas fa-seedling"></i>
+                                <div class="text">
+                                    <span id="soilTemp">--°C</span>
+                                    <p>Soil Temperature</p>
+                                </div>
+                            </div>
+                            <div class="agri-metric">
+                                <i class="fas fa-tint"></i>
+                                <div class="text">
+                                    <span id="dewPoint">--°C</span>
+                                    <p>Dew Point</p>
+                                </div>
+                            </div>
+                            <div class="agri-metric">
+                                <i class="fas fa-cloud-rain"></i>
+                                <div class="text">
+                                    <span id="precipitationChance">--%</span>
+                                    <p>Rain Probability</p>
+                                </div>
+                            </div>
+                            <div class="agri-metric">
+                                <i class="fas fa-thermometer-three-quarters"></i>
+                                <div class="text">
+                                    <span id="heatIndex">--°C</span>
+                                    <p>Heat Index</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="weather-tips">
+                    <h4>🌾 Agricultural Weather Tips</h4>
+                    <p id="weatherTip">Check the forecast regularly to plan your farming activities effectively. Monitor humidity levels for disease prevention and wind speed for spray applications.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <section class="footer" id="footer">
+       
+        <div class="credit">
+            © Copyright 2023 – All Rights Reserved
+            <a href="" target="_blank"><span>Team KrushiAI</span></a>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

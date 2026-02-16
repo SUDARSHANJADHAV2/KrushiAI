@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KrushiAI: Smart Crop Recommendation</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+ <header class="header">
+      <div class="logo">
+        <a href="/index.html"><h1>KrushiAI</h1></a>
+      </div>
+
+  <nav class="navbar">
+    <a href="../index.html">Home</a>
+    <a href="../index.html">Features</a>
+    <a href="../index.html">About</a>
+    <a href="/contact/index.html">Contact</a>
+    <a href="../KrushiAI-Weather-Forecast/index.html">Weather</a>
+    <a href="/guide/index.html">Guide</a>
+    <a href="#" >EXPLORE NOW</a>
+  </nav>
+
+  <div class="fas fa-bars" id="menu-btn"></div>
+</header>
+
+  <div class="page-banner">
+    <h1>KrushiAI: SMART CROP RECOMMENDATION</h1>
+    <p>Discover the perfect crops for your land with our AI-powered recommendation system</p>
+  </div>
+  <main class="container">
+    <section id="model-intro" class="card">
+      <div class="card-icon"><i class="fas fa-brain"></i></div>
+      <div class="card-content">
+        <h2>Intelligent Crop Recommendation</h2>
+        <p>Our crop recommendation model leverages machine learning to analyze key factors such as soil nutrients, weather
+          conditions, and rainfall to provide informed agricultural decisions. By training multiple models, we've honed
+          the accuracy and precision of our recommendations, ensuring that you receive the best advice for your land.</p>
+      </div>
+    </section>
+    
+    <section id="explore-crops" class="card">
+      <div class="card-icon"><i class="fas fa-search"></i></div>
+      <div class="card-content">
+        <h2>Explore Optimal Crops</h2>
+        <p>Discover the ideal crops for your land by exploring the average conditions required for each crop. Our model
+          takes into account nitrogen, phosphorus, potassium levels, temperature, humidity, pH, and rainfall to suggest
+          the most suitable crops.</p>
+      </div>
+    </section>
+    <section id="crops-table" class="card table-card">
+      <div class="card-header">
+        <h3>Average Conditions for Crops</h3>
+        <div class="search-container">
+          <input type="text" id="cropSearch" placeholder="Search crops..." class="search-input">
+          <i class="fas fa-search search-icon"></i>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table id="crop-table">
+          <thead>
+            <tr>
+              <th>Crop</th>
+              <th>Nitrogen</th>
+              <th>Phosphorus</th>
+              <th>Potassium</th>
+              <th>Temperature (°C)</th>
+              <th>Humidity (%)</th>
+              <th>pH</th>
+              <th>Rainfall (mm)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows will be inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <section id="crop-recommendation-how-it-works" class="process-section">
+    <h2>How Crop Recommendation Works</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-number">1</div>
+        <div class="step-icon"><i class="fas fa-file-import"></i></div>
+        <h3>Data Input</h3>
+        <p>Begin by entering details about your land, such as soil nutrient levels, weather conditions, and historical rainfall data.</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="step-number">2</div>
+        <div class="step-icon"><i class="fas fa-cogs"></i></div>
+        <h3>Model Analysis</h3>
+        <p>Our machine learning model analyzes the data using sophisticated algorithms to determine the most suitable crops for your land.</p>
+      </div>
+      
+      <div class="process-step">
+        <div class="step-number">3</div>
+        <div class="step-icon"><i class="fas fa-clipboard-list"></i></div>
+        <h3>Recommendation</h3>
+        <p>Receive a list of recommended crops along with detailed information about their optimal growing conditions.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <div class="page-banner disease-banner">
+    <h1>KrushiAI: SMART CROP RECOMMENDATION</h1>
+    <p>Discover the perfect crops for your land with our AI-powered recommendation system</p>
+  </div>
+
+  <div class="container">
+    <section id="disease-detection-intro" class="card">
+      <div class="card-icon"><i class="fas fa-microscope"></i></div>
+      <div class="card-content">
+        <h2>Plant Disease Detection</h2>
+        <p>Our mission is to help in identifying plant diseases efficiently. Upload an image of a plant, and our system will
+          analyze it to detect any signs of diseases. Together, let's protect our crops and ensure a healthier harvest!</p>
+      </div>
+    </section>
+
+    <section id="disease-detection-process" class="card">
+      <div class="card-icon"><i class="fas fa-tasks"></i></div>
+      <div class="card-content">
+        <h2>How Crop Disease Detection Works</h2>
+        <div class="process-mini">
+          <div class="process-mini-step">
+            <div class="mini-step-icon"><i class="fas fa-upload"></i></div>
+            <div class="mini-step-content">
+              <h3>Upload Image</h3>
+              <p>Go to the <strong>Disease Recognition</strong> page and upload an image of a plant with suspected diseases.</p>
+            </div>
+          </div>
+          
+          <div class="process-mini-step">
+            <div class="mini-step-icon"><i class="fas fa-chart-bar"></i></div>
+            <div class="mini-step-content">
+              <h3>Analysis</h3>
+              <p>Our system will process the image using advanced algorithms to identify potential diseases.</p>
+            </div>
+          </div>
+          
+          <div class="process-mini-step">
+            <div class="mini-step-icon"><i class="fas fa-clipboard-check"></i></div>
+            <div class="mini-step-content">
+              <h3>Results</h3>
+              <p>View the results and recommendations for further action.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-choose-us" class="card">
+      <div class="card-icon"><i class="fas fa-award"></i></div>
+      <div class="card-content">
+        <h2>Why Choose Us?</h2>
+        <div class="features-grid">
+          <div class="feature">
+            <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
+            <h3>Accuracy</h3>
+            <p>Our system utilizes state-of-the-art machine learning techniques for accurate disease detection.</p>
+          </div>
+          
+          <div class="feature">
+            <div class="feature-icon"><i class="fas fa-user-friends"></i></div>
+            <h3>User-Friendly</h3>
+            <p>Simple and intuitive interface for seamless user experience.</p>
+          </div>
+          
+          <div class="feature">
+            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+            <h3>Fast and Efficient</h3>
+            <p>Receive results in seconds, allowing for quick decision-making.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <section id="about-project" class="about-section">
+    <div class="container">
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-info-circle"></i></div>
+        <div class="card-content">
+          <h2>About the Project</h2>
+          <p>This dataset is recreated using offline augmentation from the original dataset. The original dataset can be found
+            on <a href="https://github.com/spMohanty/PlantVillage-Dataset" target="_blank" class="link">this GitHub repo <i class="fas fa-external-link-alt"></i></a>.</p>
+          <h3>Dataset Content</h3>
+          <div class="dataset-info">
+            <div class="dataset-item">
+              <div class="dataset-icon"><i class="fas fa-database"></i></div>
+              <div class="dataset-text">train (70295 images)</div>
+            </div>
+            <div class="dataset-item">
+              <div class="dataset-icon"><i class="fas fa-vial"></i></div>
+              <div class="dataset-text">test (33 images)</div>
+            </div>
+            <div class="dataset-item">
+              <div class="dataset-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="dataset-text">validation (17572 images)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="main-footer">
+    <section class="footer" id="footer">
+       
+        <div class="credit">
+            © Copyright 2023 – All Rights Reserved
+            <a href="" target="_blank"><span>Team KrushiAI</span></a>
+        </div>
+    </section>
+
+
+  <script src="index.js"></script>
+  <script>
+    // Search functionality for crop table
+    document.getElementById('cropSearch').addEventListener('keyup', function() {
+      const searchTerm = this.value.toLowerCase();
+      const tableRows = document.querySelectorAll('#crop-table tbody tr');
+      
+      tableRows.forEach(row => {
+        const cropName = row.querySelector('td:first-child').textContent.toLowerCase();
+        if (cropName.includes(searchTerm)) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

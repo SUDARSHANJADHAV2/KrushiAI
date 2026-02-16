@@ -1,0 +1,9 @@
+@echo off
+echo Starting KrushiAI Plant Disease Detection System...
+echo.
+echo Checking dependencies...
+python -c "import streamlit, tensorflow, cv2, plotly; print('All dependencies available')"
+echo.
+echo Starting Streamlit server...
+streamlit run main.py
+pause

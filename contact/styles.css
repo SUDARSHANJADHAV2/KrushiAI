@@ -1,0 +1,140 @@
+/* Page-specific tweaks for Contact page — builds on ../css/style.css */
+
+:root {
+  --contact-max-width: 1100px;
+}
+
+.contact-page {
+  padding: 40px 20px 80px;
+  background: var(--light-gray);
+  min-height: calc(100vh - 150px);
+}
+
+.container {
+  max-width: var(--contact-max-width);
+  margin: 0 auto;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 40px;
+  align-items: start;
+}
+
+.contact-info h1 {
+  font-size: 34px;
+  margin-bottom: 12px;
+  color: var(--primary-green);
+}
+
+.contact-info p {
+  color: var(--medium-gray);
+  margin-bottom: 20px;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  margin: 10px 0;
+  color: var(--medium-gray);
+}
+
+.contact-list i {
+  margin-right: 8px;
+  color: var(--primary-green);
+}
+
+.contact-form-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.06);
+}
+
+.contact-form .form-row {
+  margin-bottom: 14px;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: var(--medium-gray);
+  font-weight: 500;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 2px rgba(45, 90, 39, 0.1);
+}
+
+.form-actions {
+  margin-top: 10px;
+}
+
+.card-btn {
+  background: var(--gradient-green);
+  color: var(--white);
+  padding: 12px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(45, 90, 39, 0.3);
+}
+
+.form-status {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #menu-btn {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-page {
+    padding: 20px 10px 60px;
+  }
+
+  .contact-grid {
+    gap: 20px;
+  }
+
+  .contact-info h1 {
+    font-size: 28px;
+  }
+
+  .contact-form-card {
+    padding: 18px;
+  }
+}

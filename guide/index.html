@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Farming Guide - KrushiAI</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- navbar sections starts  -->
+    <header class="header">
+      <div class="logo">
+        <a href="../index.html"><h1>KrushiAI</h1></a>
+      </div>
+
+      <nav class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="../index.html">Features</a>
+        <a href="../index.html">About</a>
+        <a href="/contact/index.html">Contact</a>
+        <a href="../KrushiAI-Weather-Forecast/index.html">Weather</a>
+        <a href="../guide/index.html"class="active">Guide</a>
+        <a href="../explore/index.html">EXPLORE NOW</a>
+      </nav>
+
+      <div class="fas fa-bars" id="menu-btn"></div>
+    </header>
+    <!-- navbar sections ends  -->
+
+    <!-- hero section starts -->
+    <section class="hero-guide" id="home">
+      <div class="content">
+        <h1>SMART FARMING GUIDE</h1>
+        <p>Get comprehensive cultivation guidance for your crops with AI-powered insights</p>
+        
+        <div class="dropdown-container">
+          <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown()">
+              <i class="fas fa-seedling"></i>
+              Select Crop
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div id="dropdownContent" class="dropdown-content">
+              <a href="#" onclick="showCrop('apple')"><i class="fas fa-apple-alt"></i> Apple</a>
+              <a href="#" onclick="showCrop('banana')"><i class="fas fa-seedling"></i> Banana</a>
+              <a href="#" onclick="showCrop('blackgram')"><i class="fas fa-circle"></i> Black gram</a>
+              <a href="#" onclick="showCrop('chickpea')"><i class="fas fa-circle"></i> Chickpea</a>
+              <a href="#" onclick="showCrop('coffee')"><i class="fas fa-coffee"></i> Coffee</a>
+              <a href="#" onclick="showCrop('coconut')"><i class="fas fa-seedling"></i> Coconut</a>
+              <a href="#" onclick="showCrop('cotton')"><i class="fas fa-seedling"></i> Cotton</a>
+              <a href="#" onclick="showCrop('grapes')"><i class="fas fa-seedling"></i> Grapes</a>
+              <a href="#" onclick="showCrop('jute')"><i class="fas fa-seedling"></i> Jute</a>
+              <a href="#" onclick="showCrop('kidneybeans')"><i class="fas fa-seedling"></i> Kidney beans</a>
+              <a href="#" onclick="showCrop('lentil')"><i class="fas fa-circle"></i> Lentil</a>
+              <a href="#" onclick="showCrop('maize')"><i class="fas fa-seedling"></i> Maize</a>
+              <a href="#" onclick="showCrop('mungbean')"><i class="fas fa-circle"></i> Mung bean</a>
+              <a href="#" onclick="showCrop('mothbeans')"><i class="fas fa-circle"></i> Moth beans</a>
+              <a href="#" onclick="showCrop('muskmelon')"><i class="fas fa-seedling"></i> Muskmelon</a>
+              <a href="#" onclick="showCrop('orange')"><i class="fas fa-seedling"></i> Orange</a>
+              <a href="#" onclick="showCrop('papaya')"><i class="fas fa-seedling"></i> Papaya</a>
+              <a href="#" onclick="showCrop('pigeonpeas')"><i class="fas fa-circle"></i> Pigeon peas</a>
+              <a href="#" onclick="showCrop('pomegranate')"><i class="fas fa-seedling"></i> Pomegranate</a>
+              <a href="#" onclick="showCrop('rice')"><i class="fas fa-seedling"></i> Rice</a>
+              <a href="#" onclick="showCrop('watermelon')"><i class="fas fa-seedling"></i> Watermelon</a>
+              <a href="#" onclick="showCrop('mango')"><i class="fas fa-seedling"></i> Mango</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- hero section ends -->
+
+    <!-- crop info section starts -->
+    <section class="crop-details" id="cropInfo">
+      <div class="crop-info-container">
+        <!-- Crop information will be displayed here -->
+      </div>
+    </section>
+    <!-- crop info section ends -->
+
+    <!-- features section starts -->
+    <section class="features-guide" id="features">
+      <div class="heading">
+        <h1>Crop Cultivation Features</h1>
+        <p>
+          Discover comprehensive information about optimal growing conditions for various crops. 
+          Our data-driven insights help you make informed decisions for maximum yield and quality.
+        </p>
+      </div>
+
+      <div class="features-cards">
+        <div class="feature-card">
+          <div class="icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Crop Recommendations</h3>
+          <p>Get AI-powered crop suggestions based on soil conditions, climate, and market demand.</p>
+          <a href="https://krushiai-crop-recommendation-system.streamlit.app/" class="card-btn" target="_blank">Try Now</a>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">
+            <i class="fas fa-bug"></i>
+          </div>
+          <h3>Disease Detection</h3>
+          <p>Identify plant diseases early using our advanced image recognition technology.</p>
+          <a href="https://krushiai-disease-recognition-system.streamlit.app/" class="card-btn" target="_blank">Detect Now</a>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">
+            <i class="fas fa-cloud-sun"></i>
+          </div>
+          <h3>Weather Insights</h3>
+          <p>Access real-time weather data and forecasts tailored for agricultural planning.</p>
+          <a href="../KrushiAI-Weather-Forecast/index.html" class="card-btn">Check Weather</a>
+        </div>
+
+        <div class="feature-card">
+          <div class="icon">
+            <i class="fas fa-flask"></i>
+          </div>
+          <h3>Fertilizer Recommendation</h3>
+          <p>Get personalized fertilizer suggestions based on soil nutrients and crop requirements.</p>
+          <a href="https://krushiai-fertilizer-recommendation-system.streamlit.app/" class="card-btn" target="_blank">Try Now</a>
+        </div>
+      </div>
+    </section>
+    <!-- features section ends -->
+
+    <!-- crop conditions table section starts -->
+    <section class="crop-conditions" id="conditions">
+      <div class="heading">
+        <h1>Optimal Growing Conditions</h1>
+        <p>Average conditions required for successful cultivation of different crops</p>
+      </div>
+
+      <div class="table-container">
+        <table id="crop-table">
+          <thead>
+            <tr>
+              <th><i class="fas fa-seedling"></i> Crop</th>
+              <th><i class="fas fa-leaf"></i> Nitrogen</th>
+              <th><i class="fas fa-leaf"></i> Phosphorus</th>
+              <th><i class="fas fa-leaf"></i> Potassium</th>
+              <th><i class="fas fa-thermometer-half"></i> Temperature (°C)</th>
+              <th><i class="fas fa-tint"></i> Humidity (%)</th>
+              <th><i class="fas fa-balance-scale"></i> pH</th>
+              <th><i class="fas fa-cloud-rain"></i> Rainfall (mm)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Table rows will be inserted here by JavaScript -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+    <!-- crop conditions table section ends -->
+
+    <!-- how it works section starts -->
+    <section class="how-it-works" id="how-it-works">
+      <div class="heading">
+        <h1>How Our Smart Farming Works</h1>
+      </div>
+
+      <div class="process-container">
+        <div class="process-card">
+          <div class="process-number">1</div>
+          <div class="process-content">
+            <h3><i class="fas fa-upload"></i> Data Input</h3>
+            <p>Enter your land details, soil nutrient levels, weather conditions, and historical rainfall data for comprehensive analysis.</p>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">2</div>
+          <div class="process-content">
+            <h3><i class="fas fa-brain"></i> AI Analysis</h3>
+            <p>Our machine learning models analyze your data using sophisticated algorithms to determine optimal farming strategies.</p>
+          </div>
+        </div>
+
+        <div class="process-card">
+          <div class="process-number">3</div>
+          <div class="process-content">
+            <h3><i class="fas fa-lightbulb"></i> Smart Recommendations</h3>
+            <p>Receive personalized crop recommendations with detailed cultivation guidelines for maximum yield and sustainability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- how it works section ends -->
+
+    <!-- footer section starts -->
+    
+      
+      <section class="footer" id="footer">
+       
+        <div class="credit">
+            © Copyright 2023 – All Rights Reserved
+            <a href="" target="_blank"><span>Team KrushiAI</span></a>
+        </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
