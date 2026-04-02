@@ -1,115 +1,486 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contact — KrushiAI</title>
-    <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!-- Shared header (same as site) -->
-    <header class="header">
-      <div class="logo">
-        <a href="../index.html"><h1>KrushiAI</h1></a>
-      </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - KrushiAI</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Design System / Tokens */
+        :root {
+            --primary-color: #2B593F;
+            --secondary-color: #4E8752;
+            --accent-color: #A3C940;
+            --bg-color: #F9FAF7;
+            --surface-color: #FFFFFF;
+            --text-primary: #1A2B22;
+            --text-muted: #5C7362;
+            --border-color: #E1E8E3;
+            
+            --success: #16A34A;
+            --warning: #D97706;
+            --error: #DC2626;
 
-      <nav class="navbar">
-        <a href="../index.html">Home</a>
-        <a href="../index.html">Features</a>
-        <a href="../index.html">About</a>
-        <a href="#footer">Contact</a>
-        <a href="../KrushiAI-Weather-Forecast/index.html">Weather</a>
-        <a href="../guide/index.html">Guide</a>
-        <a href="../explore/index.html">EXPLORE NOW</a>
-      </nav>
+            --font-headings: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
 
-      <div class="fas fa-bars" id="menu-btn"></div>
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
+
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --shadow-float: 0 20px 40px -10px rgba(43, 89, 63, 0.15);
+        }
+
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        h1, h2, h3 { font-family: var(--font-headings); line-height: 1.2; color: var(--text-primary); }
+        p { color: var(--text-muted); }
+
+        .container { max-width: 1280px; margin: 0 auto; width: 100%; }
+
+        /* Navigation */
+        .header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: var(--space-md) 5%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled { padding: var(--space-sm) 5%; box-shadow: var(--shadow-md); }
+
+        .logo {
+            display: flex; align-items: center; gap: 12px;
+            color: var(--primary-color);
+            font-family: var(--font-headings);
+            font-size: 1.75rem; font-weight: 800;
+        }
+        .logo i { color: var(--accent-color); font-size: 2rem; }
+
+        .navbar { display: flex; gap: var(--space-lg); align-items: center; }
+        .navbar a {
+            font-family: var(--font-headings); font-weight: 500;
+            color: var(--text-muted); transition: color 0.3s ease; position: relative;
+        }
+        .navbar a:hover, .navbar a.active { color: var(--primary-color); }
+        .navbar a::after {
+            content: ''; position: absolute; bottom: -4px; left: 0;
+            width: 0%; height: 2px; background: var(--accent-color); transition: width 0.3s ease;
+        }
+        .navbar a:hover::after, .navbar a.active::after { width: 100%; }
+
+        .menu-btn { display: none; font-size: 1.5rem; color: var(--primary-color); cursor: pointer; }
+
+        /* Contact Section */
+        .contact-page {
+            flex-grow: 1;
+            padding-top: 120px; /* offset for header */
+            padding-bottom: var(--space-3xl);
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--space-3xl);
+            padding: 0 5%;
+            background: url('data:image/svg+xml,<svg width="20" height="20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="%232b593f" fill-opacity="0.05"/></svg>');
+            border-radius: var(--radius-lg);
+        }
+
+        .contact-info {
+            padding: var(--space-xl) 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-info h1 {
+            font-size: clamp(2.5rem, 4vw, 3.5rem);
+            margin-bottom: var(--space-md);
+        }
+        .contact-info h1 span { color: var(--primary-color); }
+
+        .contact-info > p {
+            font-size: 1.125rem;
+            margin-bottom: var(--space-2xl);
+            max-width: 480px;
+        }
+
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-xl);
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-md);
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: var(--radius-md);
+            background: var(--surface-color);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        .contact-text h3 {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+        }
+        .contact-text a {
+            color: var(--text-muted);
+            transition: color 0.3s;
+        }
+        .contact-text a:hover { color: var(--primary-color); }
+
+        /* Form Card */
+        .contact-form-card {
+            background: var(--surface-color);
+            padding: var(--space-2xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-float);
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-form-card h2 {
+            font-size: 2rem;
+            margin-bottom: var(--space-md);
+        }
+
+        .form-row {
+            margin-bottom: var(--space-lg);
+        }
+
+        .form-row label {
+            display: block;
+            font-family: var(--font-headings);
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+
+        .form-row input,
+        .form-row textarea {
+            width: 100%;
+            padding: 14px 16px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .form-row input:focus,
+        .form-row textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px rgba(43, 89, 63, 0.1);
+            background: var(--surface-color);
+        }
+
+        .form-row textarea { resize: vertical; min-height: 120px; }
+
+        .btn-submit {
+            width: 100%;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 28px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: var(--radius-md);
+            font-family: var(--font-headings);
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .form-status {
+            margin-top: var(--space-md);
+            padding: 14px;
+            border-radius: var(--radius-md);
+            font-family: var(--font-body);
+            font-weight: 500;
+            display: none;
+            text-align: center;
+        }
+
+        .form-status.error {
+            display: block;
+            background: rgba(220, 38, 38, 0.1);
+            color: var(--error);
+            border: 1px solid rgba(220, 38, 38, 0.2);
+        }
+
+        .form-status.success {
+            display: block;
+            background: rgba(22, 163, 74, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(22, 163, 74, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #122118;
+            color: rgba(255, 255, 255, 0.7);
+            padding: var(--space-xl) 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-xl);
+                padding: var(--space-md) 0;
+                background: none;
+            }
+            .contact-info { padding: 0 5%; text-align: center; }
+            .contact-info > p { margin: 0 auto var(--space-xl) auto; }
+            .contact-list { align-items: center; }
+            .contact-list li { flex-direction: column; align-items: center; text-align: center; }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px);
+                background: white; flex-direction: column; justify-content: center; gap: var(--space-xl);
+                transition: left 0.4s ease; box-shadow: var(--shadow-lg);
+            }
+            .navbar.active { left: 0; }
+            .menu-btn { display: block; }
+            .contact-form-card { padding: var(--space-xl) var(--space-md); border-radius: 0; border-left: none; border-right: none;}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <a href="../index.html" class="logo">
+            <i class="fas fa-leaf"></i> KrushiAI
+        </a>
+        
+        <nav class="navbar" id="navbar">
+            <a href="../index.html">Home</a>
+            <a href="../index.html#features">Features</a>
+            <a href="../index.html#about">About</a>
+            <a href="index.html" class="active">Contact</a>
+            <a href="../KrushiAI-Weather-Forecast/index.html">Weather</a>
+            <a href="../guide/index.html">Guide</a>
+        </nav>
+
+        <div class="menu-btn" id="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
     </header>
 
     <main class="contact-page">
-      <section class="contact-hero">
-        <div class="container">
-          <div class="contact-grid">
+        <div class="container contact-grid">
+            
             <div class="contact-info">
-              <h1>Get in Touch with KrushiAI</h1>
-              <p><b>
-                For instant support or partnership enquiries, fill the form and
-                we'll get back to you. You can also email us directly at
-                <a href="mailto:officialsudarshanjadhav2@gmail.com">officialsudarshanjadhav2@gmail.com</a>.
-              </b></p>
+                <h1>Ready to grow <br><span>together?</span></h1>
+                <p>Whether you need technical support navigating the AI models, or want to discuss agricultural partnerships, our team is here for you.</p>
 
-              <ul class="contact-list">
-                <li><i class="fas fa-map-marker-alt"></i> Sangli, India</li>
-                <li><i class="fas fa-phone"></i> +91 9763911131</li>
-                <li><i class="fas fa-envelope"></i> officialsudarshanjadhav2@gmail.com</li>
-              </ul>
+                <ul class="contact-list">
+                    <li>
+                        <div class="icon-box"><i class="fas fa-map-marker-alt"></i></div>
+                        <div class="contact-text">
+                            <h3>Our Location</h3>
+                            <a href="#">DKTE University, Ichalkaranji, Maharashtra</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-box"><i class="fas fa-phone-alt"></i></div>
+                        <div class="contact-text">
+                            <h3>Direct Line</h3>
+                            <a href="tel:+919763911131">+91 9763911131</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-box"><i class="fas fa-envelope"></i></div>
+                        <div class="contact-text">
+                            <h3>Email Support</h3>
+                            <a href="mailto:officialsudarshanjadhav2@gmail.com">officialsudarshanjadhav2@gmail.com</a>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
             <div class="contact-form-card">
-              <form id="contactForm" class="contact-form" novalidate>
-                <div class="form-row">
-                  <label for="name">Name</label>
-                  <input id="name" name="name" type="text" placeholder="Your name" required />
-                </div>
+                <h2>Send us a message</h2>
+                <form id="contactForm" novalidate onsubmit="return handleFormSubmit(event)">
+                    <div class="form-row">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="E.g. Ramesh Patel" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="ramesh@example.com" required>
+                    </div>
 
-                <div class="form-row">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" placeholder="you@example.com" required />
-                </div>
+                    <div class="form-row">
+                        <label for="subject">Discussion Subject</label>
+                        <input type="text" id="subject" name="subject" placeholder="Crop model assistance" required>
+                    </div>
 
-                <div class="form-row">
-                  <label for="subject">Subject</label>
-                  <input id="subject" name="subject" type="text" placeholder="Subject" />
-                </div>
+                    <div class="form-row">
+                        <label for="message">Detailed Message</label>
+                        <textarea id="message" name="message" placeholder="How can the KrushiAI team assist you today?" required></textarea>
+                    </div>
 
-                <div class="form-row">
-                  <label for="message">Message</label>
-                  <textarea id="message" name="message" rows="6" placeholder="Your message" required></textarea>
-                </div>
+                    <button type="submit" class="btn-submit" id="submitBtn">
+                        Submit Request <i class="fas fa-paper-plane"></i>
+                    </button>
 
-                <div class="form-actions">
-                  <button type="submit" class="card-btn">Send Message</button>
-                </div>
-
-                <div id="formStatus" class="form-status" aria-live="polite"></div>
-              </form>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
             </div>
-          </div>
+
         </div>
-      </section>
     </main>
 
-    <footer class="footer" id="footer">
-      <div class="credit">© Copyright 2023 – All Rights Reserved <span>Team KrushiAI</span></div>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 KrushiAI Project. Developed by DKTE CSE-AI Students.</p>
+        </div>
     </footer>
 
     <script>
-      // Simple client-side validation + demonstration submission
-      document.getElementById('contactForm').addEventListener('submit', function (e) {
-        e.preventDefault();
-        const status = document.getElementById('formStatus');
-        const name = document.getElementById('name').value.trim();
-        const email = document.getElementById('email').value.trim();
-        const message = document.getElementById('message').value.trim();
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuBtn = document.getElementById('menu-btn');
+            const navbar = document.getElementById('navbar');
+            const header = document.getElementById('header');
 
-        if (!name || !email || !message) {
-          status.textContent = 'Please fill in required fields.';
-          status.style.color = '#dc2626';
-          return;
+            // Mobile menu toggle
+            menuBtn.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                const i = menuBtn.querySelector('i');
+                if(navbar.classList.contains('active')) {
+                    i.classList.remove('fa-bars');
+                    i.classList.add('fa-times');
+                } else {
+                    i.classList.remove('fa-times');
+                    i.classList.add('fa-bars');
+                }
+            });
+
+            // Header minimize on scroll
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        });
+
+        // Form handling logic
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            const status = document.getElementById('formStatus');
+            const btn = document.getElementById('submitBtn');
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+
+            status.className = 'form-status'; // reset classes
+            
+            if (!name || !email || !message) {
+                status.textContent = 'Please fill in all required fields to proceed.';
+                status.classList.add('error');
+                return false;
+            }
+
+            // Simple email validation regex
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                status.textContent = 'Please enter a valid email address.';
+                status.classList.add('error');
+                return false;
+            }
+
+            // Simulate form submisson
+            const originalBtnHtml = btn.innerHTML;
+            btn.innerHTML = 'Sending... <i class="fas fa-circle-notch fa-spin"></i>';
+            btn.style.opacity = '0.8';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                status.textContent = 'Thank you! Your message has been successfully routed to our agriculture specialists.';
+                status.classList.add('success');
+                document.getElementById('contactForm').reset();
+                
+                btn.innerHTML = originalBtnHtml;
+                btn.style.opacity = '1';
+                btn.disabled = false;
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    status.classList.remove('success');
+                }, 5000);
+            }, 1200);
+
+            return false;
         }
-
-        // Fake submission for demo — replace with real API endpoint as needed
-        status.textContent = 'Sending message...';
-        status.style.color = '';
-
-        setTimeout(() => {
-          status.textContent = 'Thanks — your message has been sent.';
-          status.style.color = 'green';
-          document.getElementById('contactForm').reset();
-        }, 900);
-      });
     </script>
-  </body>
+</body>
 </html>

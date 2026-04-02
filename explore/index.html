@@ -1,245 +1,586 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KrushiAI: Smart Crop Recommendation</title>
-  <link rel="stylesheet" href="index.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
- <header class="header">
-      <div class="logo">
-        <a href="/index.html"><h1>KrushiAI</h1></a>
-      </div>
-
-  <nav class="navbar">
-    <a href="../index.html">Home</a>
-    <a href="../index.html">Features</a>
-    <a href="../index.html">About</a>
-    <a href="/contact/index.html">Contact</a>
-    <a href="../KrushiAI-Weather-Forecast/index.html">Weather</a>
-    <a href="/guide/index.html">Guide</a>
-    <a href="#" >EXPLORE NOW</a>
-  </nav>
-
-  <div class="fas fa-bars" id="menu-btn"></div>
-</header>
-
-  <div class="page-banner">
-    <h1>KrushiAI: SMART CROP RECOMMENDATION</h1>
-    <p>Discover the perfect crops for your land with our AI-powered recommendation system</p>
-  </div>
-  <main class="container">
-    <section id="model-intro" class="card">
-      <div class="card-icon"><i class="fas fa-brain"></i></div>
-      <div class="card-content">
-        <h2>Intelligent Crop Recommendation</h2>
-        <p>Our crop recommendation model leverages machine learning to analyze key factors such as soil nutrients, weather
-          conditions, and rainfall to provide informed agricultural decisions. By training multiple models, we've honed
-          the accuracy and precision of our recommendations, ensuring that you receive the best advice for your land.</p>
-      </div>
-    </section>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore AI Models - KrushiAI</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <section id="explore-crops" class="card">
-      <div class="card-icon"><i class="fas fa-search"></i></div>
-      <div class="card-content">
-        <h2>Explore Optimal Crops</h2>
-        <p>Discover the ideal crops for your land by exploring the average conditions required for each crop. Our model
-          takes into account nitrogen, phosphorus, potassium levels, temperature, humidity, pH, and rainfall to suggest
-          the most suitable crops.</p>
-      </div>
-    </section>
-    <section id="crops-table" class="card table-card">
-      <div class="card-header">
-        <h3>Average Conditions for Crops</h3>
-        <div class="search-container">
-          <input type="text" id="cropSearch" placeholder="Search crops..." class="search-input">
-          <i class="fas fa-search search-icon"></i>
-        </div>
-      </div>
-      <div class="table-responsive">
-        <table id="crop-table">
-          <thead>
-            <tr>
-              <th>Crop</th>
-              <th>Nitrogen</th>
-              <th>Phosphorus</th>
-              <th>Potassium</th>
-              <th>Temperature (°C)</th>
-              <th>Humidity (%)</th>
-              <th>pH</th>
-              <th>Rainfall (mm)</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Table rows will be inserted here by JavaScript -->
-          </tbody>
-        </table>
-      </div>
-    </section>
-  </main>
+    <style>
+        /* Design System / Tokens */
+        :root {
+            --primary-color: #2B593F;
+            --secondary-color: #4E8752;
+            --accent-color: #A3C940;
+            --bg-color: #F9FAF7;
+            --surface-color: #FFFFFF;
+            --text-primary: #1A2B22;
+            --text-muted: #5C7362;
+            --border-color: #E1E8E3;
+            
+            --success: #16A34A;
+            --warning: #D97706;
+            --error: #DC2626;
 
-  <section id="crop-recommendation-how-it-works" class="process-section">
-    <h2>How Crop Recommendation Works</h2>
-    <div class="process-steps">
-      <div class="process-step">
-        <div class="step-number">1</div>
-        <div class="step-icon"><i class="fas fa-file-import"></i></div>
-        <h3>Data Input</h3>
-        <p>Begin by entering details about your land, such as soil nutrient levels, weather conditions, and historical rainfall data.</p>
-      </div>
-      
-      <div class="process-step">
-        <div class="step-number">2</div>
-        <div class="step-icon"><i class="fas fa-cogs"></i></div>
-        <h3>Model Analysis</h3>
-        <p>Our machine learning model analyzes the data using sophisticated algorithms to determine the most suitable crops for your land.</p>
-      </div>
-      
-      <div class="process-step">
-        <div class="step-number">3</div>
-        <div class="step-icon"><i class="fas fa-clipboard-list"></i></div>
-        <h3>Recommendation</h3>
-        <p>Receive a list of recommended crops along with detailed information about their optimal growing conditions.</p>
-      </div>
-    </div>
-  </section>
+            --font-headings: 'Outfit', sans-serif;
+            --font-body: 'Inter', sans-serif;
 
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
 
-  <div class="page-banner disease-banner">
-    <h1>KrushiAI: SMART CROP RECOMMENDATION</h1>
-    <p>Discover the perfect crops for your land with our AI-powered recommendation system</p>
-  </div>
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-full: 9999px;
 
-  <div class="container">
-    <section id="disease-detection-intro" class="card">
-      <div class="card-icon"><i class="fas fa-microscope"></i></div>
-      <div class="card-content">
-        <h2>Plant Disease Detection</h2>
-        <p>Our mission is to help in identifying plant diseases efficiently. Upload an image of a plant, and our system will
-          analyze it to detect any signs of diseases. Together, let's protect our crops and ensure a healthier harvest!</p>
-      </div>
-    </section>
-
-    <section id="disease-detection-process" class="card">
-      <div class="card-icon"><i class="fas fa-tasks"></i></div>
-      <div class="card-content">
-        <h2>How Crop Disease Detection Works</h2>
-        <div class="process-mini">
-          <div class="process-mini-step">
-            <div class="mini-step-icon"><i class="fas fa-upload"></i></div>
-            <div class="mini-step-content">
-              <h3>Upload Image</h3>
-              <p>Go to the <strong>Disease Recognition</strong> page and upload an image of a plant with suspected diseases.</p>
-            </div>
-          </div>
-          
-          <div class="process-mini-step">
-            <div class="mini-step-icon"><i class="fas fa-chart-bar"></i></div>
-            <div class="mini-step-content">
-              <h3>Analysis</h3>
-              <p>Our system will process the image using advanced algorithms to identify potential diseases.</p>
-            </div>
-          </div>
-          
-          <div class="process-mini-step">
-            <div class="mini-step-icon"><i class="fas fa-clipboard-check"></i></div>
-            <div class="mini-step-content">
-              <h3>Results</h3>
-              <p>View the results and recommendations for further action.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="why-choose-us" class="card">
-      <div class="card-icon"><i class="fas fa-award"></i></div>
-      <div class="card-content">
-        <h2>Why Choose Us?</h2>
-        <div class="features-grid">
-          <div class="feature">
-            <div class="feature-icon"><i class="fas fa-bullseye"></i></div>
-            <h3>Accuracy</h3>
-            <p>Our system utilizes state-of-the-art machine learning techniques for accurate disease detection.</p>
-          </div>
-          
-          <div class="feature">
-            <div class="feature-icon"><i class="fas fa-user-friends"></i></div>
-            <h3>User-Friendly</h3>
-            <p>Simple and intuitive interface for seamless user experience.</p>
-          </div>
-          
-          <div class="feature">
-            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
-            <h3>Fast and Efficient</h3>
-            <p>Receive results in seconds, allowing for quick decision-making.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  </div>
-
-
-  <section id="about-project" class="about-section">
-    <div class="container">
-      <div class="card">
-        <div class="card-icon"><i class="fas fa-info-circle"></i></div>
-        <div class="card-content">
-          <h2>About the Project</h2>
-          <p>This dataset is recreated using offline augmentation from the original dataset. The original dataset can be found
-            on <a href="https://github.com/spMohanty/PlantVillage-Dataset" target="_blank" class="link">this GitHub repo <i class="fas fa-external-link-alt"></i></a>.</p>
-          <h3>Dataset Content</h3>
-          <div class="dataset-info">
-            <div class="dataset-item">
-              <div class="dataset-icon"><i class="fas fa-database"></i></div>
-              <div class="dataset-text">train (70295 images)</div>
-            </div>
-            <div class="dataset-item">
-              <div class="dataset-icon"><i class="fas fa-vial"></i></div>
-              <div class="dataset-text">test (33 images)</div>
-            </div>
-            <div class="dataset-item">
-              <div class="dataset-icon"><i class="fas fa-check-circle"></i></div>
-              <div class="dataset-text">validation (17572 images)</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="main-footer">
-    <section class="footer" id="footer">
-       
-        <div class="credit">
-            © Copyright 2023 – All Rights Reserved
-            <a href="" target="_blank"><span>Team KrushiAI</span></a>
-        </div>
-    </section>
-
-
-  <script src="index.js"></script>
-  <script>
-    // Search functionality for crop table
-    document.getElementById('cropSearch').addEventListener('keyup', function() {
-      const searchTerm = this.value.toLowerCase();
-      const tableRows = document.querySelectorAll('#crop-table tbody tr');
-      
-      tableRows.forEach(row => {
-        const cropName = row.querySelector('td:first-child').textContent.toLowerCase();
-        if (cropName.includes(searchTerm)) {
-          row.style.display = '';
-        } else {
-          row.style.display = 'none';
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+            --shadow-float: 0 20px 40px -10px rgba(43, 89, 63, 0.15);
         }
-      });
-    });
-  </script>
-</body>
 
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background-color: var(--bg-color); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh;}
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        h1, h2, h3, h4 { font-family: var(--font-headings); line-height: 1.2; color: var(--text-primary); }
+        p { color: var(--text-muted); }
+
+        .container { max-width: 1280px; margin: 0 auto; width: 100%; padding: 0 5%; }
+        .section { padding: var(--space-3xl) 0; }
+
+        /* Navigation */
+        .header { position: fixed; top: 0; left: 0; width: 100%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); display: flex; justify-content: space-between; align-items: center; padding: var(--space-md) 5%; z-index: 1000; border-bottom: 1px solid var(--border-color); transition: all 0.3s ease; }
+        .header.scrolled { padding: var(--space-sm) 5%; box-shadow: var(--shadow-md); }
+        .logo { display: flex; align-items: center; gap: 12px; color: var(--primary-color); font-family: var(--font-headings); font-size: 1.75rem; font-weight: 800; }
+        .logo i { color: var(--accent-color); font-size: 2rem; }
+        .navbar { display: flex; gap: var(--space-lg); align-items: center; }
+        .navbar a { font-family: var(--font-headings); font-weight: 500; color: var(--text-muted); transition: color 0.3s ease; position: relative; }
+        .navbar a:hover, .navbar a.active { color: var(--primary-color); }
+        .navbar a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0%; height: 2px; background: var(--accent-color); transition: width 0.3s ease; }
+        .navbar a:hover::after, .navbar a.active::after { width: 100%; }
+        .menu-btn { display: none; font-size: 1.5rem; color: var(--primary-color); cursor: pointer; }
+
+        /* Page Banner */
+        .page-banner {
+            padding-top: calc(100px + var(--space-3xl));
+            padding-bottom: var(--space-3xl);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .page-banner h1 {
+            color: white;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: var(--space-sm);
+        }
+
+        .page-banner p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Intro Cards */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: calc(var(--space-2xl) * -1);
+            position: relative;
+            z-index: 10;
+        }
+
+        .intro-card {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--border-color);
+            display: flex;
+            gap: var(--space-md);
+            align-items: flex-start;
+        }
+
+        .intro-icon {
+            background: rgba(43, 89, 63, 0.05);
+            color: var(--primary-color);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            flex-shrink: 0;
+        }
+
+        .intro-content h3 {
+            margin-bottom: var(--space-xs);
+            font-size: 1.25rem;
+        }
+
+        /* Data Grid Table */
+        .table-section { margin-top: var(--space-3xl); }
+        
+        .table-card {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-float);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .table-header {
+            padding: var(--space-lg) var(--space-xl);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: var(--space-md);
+        }
+
+        .table-header h3 {
+            font-size: 1.5rem;
+            margin: 0;
+        }
+
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 320px;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 12px 16px 12px 42px;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            background: var(--bg-color);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            transition: all 0.3s;
+        }
+
+        .search-container input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(43, 89, 63, 0.1);
+            background: var(--surface-color);
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            max-height: 500px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        th {
+            background: var(--bg-color);
+            color: var(--primary-color);
+            font-family: var(--font-headings);
+            font-weight: 600;
+            padding: 16px var(--space-lg);
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        td {
+            padding: 16px var(--space-lg);
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        tr:last-child td { border-bottom: none; }
+        
+        tr:hover td {
+            background: rgba(43, 89, 63, 0.02);
+            color: var(--text-primary);
+        }
+
+        td:first-child {
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* Process Steps section */
+        .process-title { text-align: center; margin-bottom: var(--space-2xl); }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            counter-reset: step;
+        }
+
+        .process-step {
+            position: relative;
+            background: var(--surface-color);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-color);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-headings);
+            font-weight: 800;
+            border: 3px solid var(--bg-color);
+            counter-increment: step;
+            content: counter(step);
+        }
+
+        .process-step i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: var(--space-md);
+            display: block;
+        }
+
+        .process-step h4 { margin-bottom: var(--space-sm); font-size: 1.25rem; }
+
+        /* Secondary Page Banner for Disease */
+        .disease-banner {
+            background: linear-gradient(135deg, #1A2B22 0%, var(--primary-color) 100%);
+            padding: var(--space-3xl) 0;
+            margin-top: var(--space-3xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        /* Dataset Info */
+        .dataset-section {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .dataset-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            margin-top: var(--space-xl);
+        }
+
+        .dataset-item {
+            padding: var(--space-lg);
+            background: var(--bg-color);
+            border-radius: var(--radius-md);
+        }
+
+        .dataset-item i { color: var(--accent-color); font-size: 1.5rem; margin-bottom: 8px;}
+        .dataset-item .val { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); font-family: var(--font-headings); }
+        .dataset-item .lbl { color: var(--text-muted); font-size: 0.9rem; }
+
+        /* Footer */
+        .footer {
+            background-color: #122118; color: rgba(255, 255, 255, 0.7);
+            padding: var(--space-xl) 5%; text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1); margin-top: auto;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar { position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px); background: white; flex-direction: column; justify-content: center; gap: var(--space-xl); transition: left 0.4s ease; box-shadow: var(--shadow-lg); }
+            .navbar.active { left: 0; }
+            .menu-btn { display: block; }
+            .table-header { flex-direction: column; align-items: flex-start; }
+            .search-container { max-width: 100%; }
+            .dataset-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <a href="../index.html" class="logo">
+            <i class="fas fa-leaf"></i> KrushiAI
+        </a>
+        
+        <nav class="navbar" id="navbar">
+            <a href="../index.html">Home</a>
+            <a href="../index.html#features">Features</a>
+            <a href="../index.html#about">About</a>
+            <a href="../contact/index.html">Contact</a>
+            <a href="../KrushiAI-Weather-Forecast/index.html">Weather</a>
+            <a href="../guide/index.html">Guide</a>
+            <a href="index.html" class="active">EXPLORE NOW</a>
+        </nav>
+
+        <div class="menu-btn" id="menu-btn">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <!-- Crop Banner -->
+    <div class="page-banner">
+        <div class="container">
+            <h1>Smart Crop Recommendation</h1>
+            <p>Discover the precise environmental parameters required for optimal cultivation of over 20 specific crops.</p>
+        </div>
+    </div>
+
+    <!-- Intro Cards -->
+    <main class="container">
+        <div class="intro-grid">
+            <div class="intro-card">
+                <div class="intro-icon"><i class="fas fa-brain"></i></div>
+                <div class="intro-content">
+                    <h3>Intelligent Analytics</h3>
+                    <p>Our crop recommendation model leverages machine learning algorithms to analyze soil nutrients, weather, and rainfall to provide mathematically sound agricultural decisions.</p>
+                </div>
+            </div>
+            
+            <div class="intro-card">
+                <div class="intro-icon"><i class="fas fa-search"></i></div>
+                <div class="intro-content">
+                    <h3>Explore Optimal Metrics</h3>
+                    <p>Familiarize yourself with the exact N, P, K levels, temperature, and pH bounds utilized by our neural networks to recommend suitable crops below.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Grid -->
+        <section class="section table-section">
+            <div class="table-card">
+                <div class="table-header">
+                    <h3>Average Conditions Reference</h3>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="cropSearch" placeholder="Search crops by name...">
+                    </div>
+                </div>
+                <div class="table-responsive">
+                    <table id="crop-table">
+                        <thead>
+                            <tr>
+                                <th>Crop</th>
+                                <th>Nitrogen (N)</th>
+                                <th>Phosphorus (P)</th>
+                                <th>Potassium (K)</th>
+                                <th>Temp (°C)</th>
+                                <th>Humidity (%)</th>
+                                <th>pH Level</th>
+                                <th>Rainfall (mm)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="section">
+            <h2 class="process-title">How The Engine Works</h2>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <i class="fas fa-file-import"></i>
+                    <h4>Data Input</h4>
+                    <p>Enter details about your land, including a basic soil test (N, P, K) and localized climate data.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <i class="fas fa-cogs"></i>
+                    <h4>Model Inference</h4>
+                    <p>Our underlying Random Forest algorithm passes your data through its decision trees.</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <i class="fas fa-clipboard-list"></i>
+                    <h4>Recommendation</h4>
+                    <p>Receive an instantaneous, highly accurate crop suggestion tailored to maximize your specific yield potential.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Disease Banner -->
+    <div class="page-banner disease-banner">
+        <div class="container">
+            <h1>Plant Disease Recognition</h1>
+            <p>Identify plant diseases instantly using our robust Convolutional Neural Network.</p>
+        </div>
+    </div>
+
+    <!-- Disease Details -->
+    <div class="container section">
+        <div class="dataset-section">
+            <i class="fas fa-microscope" style="font-size: 3rem; color: var(--primary-color); margin-bottom: var(--space-md);"></i>
+            <h2>Our Custom Image Dataset</h2>
+            <p>Our model was trained on a robust, heavily augmented version of the PlantVillage Dataset to ensure complete accuracy across 38 distinct disease classes and 14 crops.</p>
+            
+            <div class="dataset-grid">
+                <div class="dataset-item">
+                    <i class="fas fa-database"></i>
+                    <div class="val">70,295</div>
+                    <div class="lbl">Training Images</div>
+                </div>
+                <div class="dataset-item">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="val">17,572</div>
+                    <div class="lbl">Validation Images</div>
+                </div>
+                <div class="dataset-item">
+                    <i class="fas fa-vial"></i>
+                    <div class="val">38</div>
+                    <div class="lbl">Disease Classes</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 KrushiAI Project. Developed by DKTE CSE-AI Students.</p>
+        </div>
+    </footer>
+
+    <!-- Inline JavaScript -->
+    <script>
+        // Data
+        const cropData = [
+            { name: "Apple", n: "20.80", p: "134.22", k: "199.89", temp: "22.63", hum: "92.33", ph: "5.93", rain: "112.65" },
+            { name: "Banana", n: "100.23", p: "82.01", k: "50.05", temp: "27.38", hum: "80.36", ph: "5.98", rain: "104.63" },
+            { name: "Blackgram", n: "40.02", p: "67.47", k: "19.24", temp: "29.97", hum: "65.12", ph: "7.13", rain: "67.88" },
+            { name: "Chickpea", n: "40.09", p: "67.79", k: "79.92", temp: "18.87", hum: "16.86", ph: "7.34", rain: "80.06" },
+            { name: "Coconut", n: "21.98", p: "16.93", k: "30.59", temp: "27.41", hum: "94.84", ph: "5.98", rain: "175.69" },
+            { name: "Coffee", n: "101.20", p: "28.74", k: "29.94", temp: "25.54", hum: "58.87", ph: "6.81", rain: "158.07" },
+            { name: "Cotton", n: "117.77", p: "46.24", k: "19.56", temp: "23.99", hum: "79.84", ph: "6.92", rain: "80.09" },
+            { name: "Grapes", n: "23.18", p: "132.53", k: "200.11", temp: "23.87", hum: "81.87", ph: "6.25", rain: "69.91" },
+            { name: "Jute", n: "78.40", p: "46.86", k: "39.99", temp: "24.96", hum: "79.64", ph: "6.73", rain: "174.79" },
+            { name: "Lentil", n: "18.77", p: "68.36", k: "19.41", temp: "24.51", hum: "64.80", ph: "6.99", rain: "45.68" },
+            { name: "Maize", n: "77.76", p: "48.44", k: "19.79", temp: "22.61", hum: "65.92", ph: "6.26", rain: "84.76" },
+            { name: "Mango", n: "20.07", p: "27.18", k: "29.92", temp: "31.90", hum: "50.05", ph: "5.77", rain: "94.99" },
+            { name: "Mothbeans", n: "21.44", p: "48.01", k: "20.23", temp: "28.52", hum: "53.16", ph: "6.85", rain: "51.22" },
+            { name: "Mungbean", n: "20.99", p: "47.28", k: "19.87", temp: "28.27", hum: "85.95", ph: "6.74", rain: "48.44" },
+            { name: "Muskmelon", n: "100.32", p: "17.72", k: "50.08", temp: "28.66", hum: "92.34", ph: "6.36", rain: "24.69" },
+            { name: "Orange", n: "19.58", p: "16.55", k: "10.01", temp: "22.77", hum: "92.50", ph: "7.01", rain: "110.41" },
+            { name: "Papaya", n: "49.88", p: "59.05", k: "50.04", temp: "33.72", hum: "92.40", ph: "6.74", rain: "142.63" },
+            { name: "Pigeonpeas", n: "20.73", p: "67.73", k: "20.29", temp: "27.74", hum: "48.06", ph: "5.79", rain: "149.46" },
+            { name: "Pomegranate", n: "18.87", p: "18.75", k: "40.21", temp: "21.84", hum: "90.13", ph: "6.43", rain: "107.53" },
+            { name: "Rice", n: "79.89", p: "47.58", k: "39.87", temp: "23.69", hum: "82.27", ph: "6.43", rain: "236.18" },
+            { name: "Watermelon", n: "99.42", p: "17.00", k: "50.22", temp: "25.59", hum: "85.16", ph: "6.50", rain: "50.79" },
+            { name: "Kidneybeans", n: "20.75", p: "67.54", k: "20.05", temp: "20.05", hum: "21.61", ph: "5.78", rain: "105.92" }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Interactions
+            const menuBtn = document.getElementById('menu-btn');
+            const navbar = document.getElementById('navbar');
+            const header = document.getElementById('header');
+
+            menuBtn.addEventListener('click', () => {
+                navbar.classList.toggle('active');
+                const i = menuBtn.querySelector('i');
+                if(navbar.classList.contains('active')) {
+                    i.classList.remove('fa-bars');
+                    i.classList.add('fa-times');
+                } else {
+                    i.classList.remove('fa-times');
+                    i.classList.add('fa-bars');
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            // Table Population
+            const tbody = document.querySelector('#crop-table tbody');
+            cropData.forEach(crop => {
+                let row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${crop.name}</td>
+                    <td>${crop.n}</td>
+                    <td>${crop.p}</td>
+                    <td>${crop.k}</td>
+                    <td>${crop.temp}</td>
+                    <td>${crop.hum}</td>
+                    <td>${crop.ph}</td>
+                    <td>${crop.rain}</td>
+                `;
+                tbody.appendChild(row);
+            });
+
+            // Search Filter
+            document.getElementById('cropSearch').addEventListener('keyup', function() {
+                const term = this.value.toLowerCase();
+                const rows = tbody.querySelectorAll('tr');
+                
+                rows.forEach(row => {
+                    const name = row.querySelector('td:first-child').textContent.toLowerCase();
+                    if(name.includes(term)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
