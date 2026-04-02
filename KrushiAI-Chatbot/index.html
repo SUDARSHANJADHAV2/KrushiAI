@@ -293,8 +293,8 @@
     </div>
 
     <script>
-        const API_KEY = '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';
-        const API_URL = 'https://openrouter.ai/api/v1/chat/completions';
+        const API_KEY = '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';
+        const API_URL = 'http://localhost:8001/api/chat';
         
         // Log API configuration for debugging
         console.log('API configured and ready');
@@ -375,7 +375,7 @@
                         'Accept': 'application/json'
                     },
                     body: JSON.stringify({
-                        model: 'meta-llama/llama-3.2-3b-instruct:free',
+                        model: 'meta/llama-3.1-8b-instruct',
                         messages: [
                             {
                                 role: 'system',
