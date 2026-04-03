@@ -277,11 +277,8 @@
             </div>
         </div>
     </div>
-
     <script>
-        const API_KEY = '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';
         const API_URL = 'http://localhost:8001/api/chat';
-        
         const chatContainer = document.getElementById('chatContainer');
         const messageInput = document.getElementById('messageInput');
         const sendButton = document.getElementById('sendButton');
@@ -355,7 +352,6 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${API_KEY}`,
                         'Accept': 'application/json'
                     },
                     body: JSON.stringify({

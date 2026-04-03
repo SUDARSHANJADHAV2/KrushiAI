@@ -1,10 +1,9 @@
 // Weather App JavaScript with proper error handling and fallbacks
 class WeatherApp {
     constructor() {
-        // Using OpenWeatherMap API (requires free API key)
-        this.API_KEY = 'c057b6fe9ccb5c8695464878916fe008';
-        this.API_BASE = 'https://api.openweathermap.org/data/2.5';
-        this.GEO_API = 'https://api.openweathermap.org/geo/1.0';
+        // All API calls are proxied through local server.py to keep keys secure
+        this.API_BASE = 'http://localhost:8001/api/weather';
+        this.GEO_API = 'http://localhost:8001/api/weather/geo';
         
         this.initializeElements();
         this.initializeEventListeners();
@@ -149,7 +148,7 @@ class WeatherApp {
         try {
             // Test if API key is working by making a simple request first
             const testResponse = await fetch(
-                `${this.API_BASE}/weather?q=London&appid=${this.API_KEY}&units=metric`
+                `${this.API_BASE}/weather?q=London&units=metric`
             );
 
             if (testResponse.status === 401) {
@@ -162,7 +161,7 @@ class WeatherApp {
 
             // First, get coordinates for the city
             const geoResponse = await fetch(
-                `${this.GEO_API}/direct?q=${encodeURIComponent(cityName)}&limit=1&appid=${this.API_KEY}`
+                `${this.GEO_API}/direct?q=${encodeURIComponent(cityName)}&limit=1`
             );
 
             console.log('Geo API response status:', geoResponse.status);
@@ -211,7 +210,7 @@ class WeatherApp {
 
             // Get current weather
             const weatherResponse = await fetch(
-                `${this.API_BASE}/weather?lat=${lat}&lon=${lon}&appid=${this.API_KEY}&units=metric`
+                `${this.API_BASE}/weather?lat=${lat}&lon=${lon}&units=metric`
             );
 
             console.log('Weather API response status:', weatherResponse.status);
@@ -230,7 +229,7 @@ class WeatherApp {
 
             // Get 5-day forecast
             const forecastResponse = await fetch(
-                `${this.API_BASE}/forecast?lat=${lat}&lon=${lon}&appid=${this.API_KEY}&units=metric`
+                `${this.API_BASE}/forecast?lat=${lat}&lon=${lon}&units=metric`
             );
 
             console.log('Forecast API response status:', forecastResponse.status);
@@ -243,7 +242,7 @@ class WeatherApp {
             let uvData = {};
             try {
                 const uvResponse = await fetch(
-                    `${this.API_BASE}/uvi?lat=${lat}&lon=${lon}&appid=${this.API_KEY}`
+                    `${this.API_BASE}/uvi?lat=${lat}&lon=${lon}`
                 );
                 if (uvResponse.ok) {
                     uvData = await uvResponse.json();
