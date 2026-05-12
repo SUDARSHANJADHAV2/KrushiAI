@@ -6,7 +6,7 @@
     <h3>Link : https://aifarmingassistant-krushiai.netlify.app/ </h3>
 </div>
 
-![Screenshot 2025-01-22 210034](https://github.com/SUDARSHANJADHAV2/Mega-Project/blob/main/ScreenShots/HomePage.png)
+![Screenshot 2025-01-22 210034](https://github.com/SUDARSHANJADHAV2/KrushiAI/blob/main/ScreenShots/HomePage.png)
 
 
 ## Overview
@@ -15,9 +15,9 @@ Smart Farming Assistant is an innovative solution that uses advanced technology 
 
 ## Research Paper
 
-> This project is based on the research paper published on IEEE. You can find the paper at the following link:
+> This project is based on the research paper published on IJARCCE. You can find the paper at the following link:
 
-- You can view the research paper directly here : [View Paper](https://github.com/SUDARSHANJADHAV2/Mega-Project/blob/main/ResearchPaper.pdf)
+- You can view the research paper directly here : [View Paper](https://github.com/SUDARSHANJADHAV2/KrushiAI/blob/main/ResearchPaper.pdf)
 
 
 ## Features
@@ -32,7 +32,7 @@ Smart Farming Assistant is an innovative solution that uses advanced technology 
 
 ## Datasets
 
-The **Smart Farming Assistant** project provides three key datasets: the **Crop Recommendation Dataset** (2200 rows) includes soil and environmental factors such as nitrogen, phosphorous, temperature, humidity, and pH to predict the most suitable crops; the **Plant Disease Identification Dataset** contains 70,295 training and 17,572 validation images covering 38 diseases across 14 crops like Apple, Tomato, and Grape, used to train CNN models for disease detection; and the **Fertilizer Recommendation Dataset** offers data on soil quality and crop needs to provide tailored fertilizer suggestions. These datasets can be accessed via the following links: [Crop Recommendation Dataset](https://github.com/SUDARSHANJADHAV2/Mega-Project/blob/main/KrushiAI-Crop-Recommendation/Crop_recommendation.csv), [Plant Disease Dataset](https://github.com/SUDARSHANJADHAV2/Mega-Project/tree/main/KrushiAI-Disease-Recognition), and [Fertilizer Recommendation Dataset](https://github.com/SUDARSHANJADHAV2/Mega-Project/blob/main/KrushiAI-Fertilizer-Recommendation/Fertilizer_recommendation.csv).
+The **Smart Farming Assistant** project provides three key datasets: the **Crop Recommendation Dataset** (2200 rows) includes soil and environmental factors such as nitrogen, phosphorous, temperature, humidity, and pH to predict the most suitable crops; the **Plant Disease Identification Dataset** contains 70,295 training and 17,572 validation images covering 38 diseases across 14 crops like Apple, Tomato, and Grape, used to train CNN models for disease detection; and the **Fertilizer Recommendation Dataset** offers data on soil quality and crop needs to provide tailored fertilizer suggestions. These datasets can be accessed via the following links: [Crop Recommendation Dataset](https://github.com/SUDARSHANJADHAV2/KrushiAI/blob/main/KrushiAI-Crop-Recommendation/Crop_recommendation.csv), [Plant Disease Dataset](https://github.com/SUDARSHANJADHAV2/KrushiAI/tree/main/KrushiAI-Disease-Recognition), and [Fertilizer Recommendation Dataset](https://github.com/SUDARSHANJADHAV2/KrushiAI/blob/main/KrushiAI-Fertilizer-Recommendation/Fertilizer_recommendation.csv).
 
 # 📌 Crop Recommendation Model
 
